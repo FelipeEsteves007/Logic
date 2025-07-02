@@ -1,15 +1,4 @@
-const arr = [2, 8, 4, 10, 3]
+const arr = [3,2,1,,5,6,10,20,30,40]
 
-function processarNumeros (arr, callback){
-    for (let i = 0 ; i < arr.length; i++){
-        callback(arr[i])
-    }
-}
-
-const exibir = numero => {
-    if (numero > 5){
-        console.log(`Numero maior que 5: ${numero}`);
-    }
-}
-
-processarNumeros(arr, exibir)
+const exibir = arr.filter((num) => num > 5)
+console.log(exibir);
