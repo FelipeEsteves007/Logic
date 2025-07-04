@@ -1,15 +1,15 @@
-function fibonacci(num) {
-  if (num === 0) return [0];
-  if (num === 1) return [0, 1];
+const arr = [1,2,3,4,5,6,7,8,9]
 
-  let arr = [0, 1];
-
-  for (let i = 2; i <= num; i++) {      
-    let prox = arr[i - 1] + arr[i - 2];   
-    arr.push(prox);
+function processarNumeros (arr, callback){
+  for (let i = 0; i < arr.length; i++){
+    callback(arr[i])
   }
-
-  return arr;
 }
 
-console.log(fibonacci(3));
+const exibir = num => {
+  if (num > 5){
+    console.log(`Numero maior que 5: ${num}`);
+  }
+}
+
+processarNumeros(arr, exibir)
