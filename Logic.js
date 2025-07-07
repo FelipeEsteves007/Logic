@@ -1,16 +1,15 @@
-//Números Primos
-//Enunciado: Crie uma função que verifique se um número é primo.
+const arr = [1,2,3,4,5,6,7,8,9]
 
-function isPrime (num){
-  if (num <= 1){
-    return false
+function processarNum (arr, callback){
+  for (let i = 0; i < arr.length; i++){
+    callback(arr[i])
   }
-  for (let i = 2; i < num; i++){
-    if (num % i === 0){
-      return false 
-    }
-  }
-  return true
 }
-console.log(`The number 7 is prime? ${isPrime(7)}`)
-console.log(`The number 10 is prime? ${isPrime(10)}`)
+
+const exibir = num => {
+  if (num > 5) { 
+    console.log(`O ${num} é maior que 5`);
+  }
+}
+
+processarNum(arr,exibir)
