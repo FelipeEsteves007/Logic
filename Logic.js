@@ -1,5 +1,17 @@
-function fatorial (num){
-  if (num === 0 || num === 1) return 1
-  return num * fatorial(num - 1)
+//onst arr = [10, 20, 30]
+
+function processarNumeros(num, callback){
+  for (let i = 0; i < num.length; i++){
+    callback(num[i])
+  }
 }
-console.log(fatorial(10));
+
+{/*
+const dobro = num => {
+  console.log(`o dobro de ${num} é : ${num * 2}`);
+}
+*/}
+processarNumeros([10,20,30], (num)=> {
+ console.log(`o dobro de ${num} é : ${num * 2}`);
+  
+})
