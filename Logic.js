@@ -1,15 +1,12 @@
-const arr = [1,2,3,4,5,6,7,8,9]
-
-function processarNum (arr, callback){
+function twoSum (arr, terget){
   for (let i = 0; i < arr.length; i++){
-    callback(arr[i])
+    for (let j = 1 + i; j < arr.length; j++){
+      if (arr[i] + arr[j] === terget){
+        return [i,j]
+      }
+    }
   }
 }
 
-const exibir = num => {
-  if (num > 5) { 
-    console.log(`O ${num} é maior que 5`);
-  }
-}
-
-processarNum(arr,exibir)
+const resultado = twoSum([2, 15 , 11, 7], 26)
+console.log(resultado);
