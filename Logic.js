@@ -1,12 +1,13 @@
-function twoSum (arr, terget){
-  for (let i = 0; i < arr.length; i++){
-    for (let j = 1 + i; j < arr.length; j++){
-      if (arr[i] + arr[j] === terget){
-        return [i,j]
-      }
+const tarefas = ['correr', 'jogar', 'brincar']
+
+function executarTarefas (tarefas, callback){
+    for (let i = 0; i < tarefas.length; i++){
+        callback(tarefas[i])
     }
-  }
 }
 
-const resultado = twoSum([2, 15 , 11, 7], 26)
-console.log(resultado);
+const mostrarTarefa = tarefa => {
+    console.log(`Executando a tarefa: ${tarefa}`);    
+}
+
+executarTarefas(tarefas,mostrarTarefa)
