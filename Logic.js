@@ -1,14 +1,6 @@
-const arr = [2, 15 , 11, 7]
-const target = 9 
-
-function twoSum(arr, target) {
-    for (let i = 0; i < arr.length; i++){
-        for (let j = 1 + i; j < arr.length; j++){
-            if (arr[i] + arr[j] === target){
-                return [i,j]
-            }
-        }
-    }
+function isPalindrome (str){
+    invert = str.split('').reverse().join('')
+    return invert 
 }
-
-console.log(twoSum(arr,target));
+console.log(isPalindrome('amor'));
+console.log(isPalindrome('roma'));
