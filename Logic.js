@@ -1,2 +1,14 @@
-const filtrarPares = arr => arr.filter(num => num % 2 === 0)
-console.log(filtrarPares([1,2,3,4,5,6]));
+const arr = [2, 15 , 11, 7]
+const terget = 9
+
+function twoSun(arr, terget) {
+    for ( let i = 0; i < arr.length; i++){
+        for (let j = 1 + i; j < arr.length; j++){
+            if (arr[i] + arr[j] === terget){
+                return [i,j] 
+            }
+        }
+    }
+}
+
+console.log(twoSun(arr,terget));
