@@ -8,4 +8,8 @@ const dobro = num => {
     console.log(`o dobro de ${num} é: ${num * 2}`);
     
 }
+
+
+
+
 processarNumeros(arr, dobro)
