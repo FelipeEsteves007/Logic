@@ -1,11 +1,13 @@
-function parOuImpar (num){
-    if (num % 2 === 0 ){
-        return "par"
-    } else {
-        return "impar"
+const arr = [10, 20, 30]
+function processarNumeros (arr, callback){
+    for (let i = 0; i < arr.length; i++){
+        callback(arr[i])
     }
 }
-console.log(parOuImpar(7));
-console.log(parOuImpar(8));
-console.log(parOuImpar(1));
 
+const dobro = num => {
+    console.log(`o dobro de ${num} é: ${num * 2}`);
+    
+}
+
+processarNumeros(arr, dobro)
