@@ -1,17 +1,11 @@
-function fibonacci (num){
-    if (num === 0){
-        return []
+function parOuImpar (num){
+    if (num % 2 === 0 ){
+        return "par"
+    } else {
+        return "impar"
     }
-    if (num === 1){
-        return [0]
-    }
-
-    const arr = [0,1]
-
-    for (let i = 2; i < num; i++){
-        let prox = arr[i - 1] + arr[i - 2] 
-        arr.push(prox)
-    }
-    return arr 
 }
-console.log(fibonacci(7));
+console.log(parOuImpar(7));
+console.log(parOuImpar(8));
+console.log(parOuImpar(1));
+
