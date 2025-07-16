@@ -1,14 +1,14 @@
-const arr = [10, 20, 30]
+const arr = [1, 2, 3, 3]
 
-function processarNumeros (arr, callback){
+function contains (arr){
     for (let i = 0; i < arr.length; i++){
-        callback(arr[i])
+        for (let j = 1 + i; j < arr.length; j++){
+            if (arr[i] === arr[j]){
+                return true
+            }
+        }
     }
+    return false
 }
 
-const dobro = num => {
-    console.log(`o dobro de ${num} é: ${num * 2}`);
-    
-}
-
-processarNumeros(arr, dobro)
+console.log(contains(arr));
