@@ -1,14 +1,16 @@
-const num = [1,2,3,4,5]
+const arr = [1,2,3,4,5,7,9]
 
-function contains (num){
-    for (let i = 0; i < num.length; i++){
-        for (let j = i + 1; j < num.length; j++){
-            if (num[i] === num[j]){
-                return true 
-            }
-        }
+function processarNumeros(arr,callback){
+    for(let i = 0; i < arr.length; i++){
+        callback(arr[i])
     }
-    return false 
 }
 
-console.log(contains(num));
+const exibir = num => {
+    if (num > 5){
+        console.log(`${num} é maior que 5`);
+        
+    }
+}
+
+processarNumeros(arr,exibir)
