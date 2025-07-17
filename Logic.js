@@ -1,14 +1,14 @@
-const arr = [1, 2, 3, 3]
+const num = [1,2,3,4,5]
 
-function contains (arr){
-    for (let i = 0; i < arr.length; i++){
-        for (let j = 1 + i; j < arr.length; j++){
-            if (arr[i] === arr[j]){
-                return true
+function contains (num){
+    for (let i = 0; i < num.length; i++){
+        for (let j = i + 1; j < num.length; j++){
+            if (num[i] === num[j]){
+                return true 
             }
         }
     }
-    return false
+    return false 
 }
 
-console.log(contains(arr));
+console.log(contains(num));
