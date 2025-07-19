@@ -3,25 +3,30 @@ Enunciado:
 Dadas duas strings s e t, retorne true se t for um anagrama de s, e false caso contrário.
 
 Um anagrama é uma palavra ou frase formada reorganizando as letras de outra palavra ou frase, geralmente usando todas as letras originais exatamente uma vez. */}
+// amor roma 
 
-function isAnagram (s, t){
+
+function anagram (s, t){
     if (s.length !== t.length){
         return false 
     }
 
-    const count = {}    // contar quantas vezes cada letra aparece na string
+    const letras = {}
 
-    for (let char of s){ //percorre s e add a char 
-        count[char] = (count[char] || 0) + 1 // se ja existe count[char] soma 1 no valor atual, senão começar com zero se soma 1
+    for (let char of s){
+        letras[char] = (letras[char]  || 0) + 1  
     }
 
-    for (let char of t){ //percorre a strinf t 
-        if (!count[char]){ // se não tiver a letra ou tiver alguma letra diferente ou a mais retorna false
+    for (let char of t){
+        if (!letras[char]){
             return false 
         }
-        count[char]--;
+        letras[char]--;
     }
+
     return true 
 }
-console.log(isAnagram("silent","listen"));
-console.log(isAnagram("rat","car"));
+
+console.log(anagram("roma","amor"));
+
+console.log(anagram("romas","amores"));
