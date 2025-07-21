@@ -1,27 +1,13 @@
-//amor roma 
-function validAnagram (s, t){
-    if (s.length !== t.length){
-        return false 
-    }
+const nums = [0,1,2,3,4,5,6,6]
 
-    const counter = {}
-
-    for (let char of s){
-        counter[char] = (counter[char] || 0) + 1
-        console.log(counter);
-        
-    }
-    console.log("---------------------");
-
-    for (let char of t){
-        if (!counter[char]){
-            return false 
+function cointansDuplicate (nums){
+    for (let i = 0; i < nums.length; i++){
+        for (let j = i + 1; j < nums.length; j++){
+            if (nums[i] === nums[j]){
+                return true 
+            }
         }
-        counter[char]--;
-        console.log(counter);
-        
     }
-    return true
+    return false 
 }
-console.log(validAnagram("amor", "roma"));
-console.log(validAnagram("amores", "roma"));
+console.log(cointansDuplicate(nums));
