@@ -1,32 +1,27 @@
-{/*Valid Anagram (#242)
-Enunciado:
-Dadas duas strings s e t, retorne true se t for um anagrama de s, e false caso contrário.
-
-Um anagrama é uma palavra ou frase formada reorganizando as letras de outra palavra ou frase, geralmente usando todas as letras originais exatamente uma vez. */}
-// amor roma 
-
-
-function anagram (s, t){
+//amor roma 
+function validAnagram (s, t){
     if (s.length !== t.length){
         return false 
     }
 
-    const letras = {}
+    const counter = {}
 
     for (let char of s){
-        letras[char] = (letras[char]  || 0) + 1  
+        counter[char] = (counter[char] || 0) + 1
+        console.log(counter);
+        
     }
+    console.log("---------------------");
 
     for (let char of t){
-        if (!letras[char]){
+        if (!counter[char]){
             return false 
         }
-        letras[char]--;
+        counter[char]--;
+        console.log(counter);
+        
     }
-
-    return true 
+    return true
 }
-
-console.log(anagram("roma","amor"));
-
-console.log(anagram("romas","amores"));
+console.log(validAnagram("amor", "roma"));
+console.log(validAnagram("amores", "roma"));
