@@ -1,13 +1,22 @@
-const nums = [0,1,2,3,4,5,6,6]
+const arr = [1,2,3,4,5,6,7,8,9]
 
-function cointansDuplicate (nums){
-    for (let i = 0; i < nums.length; i++){
-        for (let j = i + 1; j < nums.length; j++){
-            if (nums[i] === nums[j]){
-                return true 
-            }
+function maiorMenor (arr){
+    if (arr.length === 0){
+        return {maior: null, menor: null}
+    }
+
+    let maior = arr[0]
+    let menor = arr[0]
+
+    for (let i = 0; i < arr.length;i++){
+        if (arr[i] > maior){
+            maior = arr[i]
+        }
+        if (arr[i] < menor){
+            menor = arr[i]
         }
     }
-    return false 
+    return {maior: maior, menor: menor}
 }
-console.log(cointansDuplicate(nums));
+
+console.log(maiorMenor(arr));
