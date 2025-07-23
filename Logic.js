@@ -1,16 +1,21 @@
-function isPrime (num){
-    if (num < 1){
-        return false 
+function validAnagram (s,t){
+    if (s.length !== t.length){
+        return false
     }
 
-    for (let i = 2; i < num; i++){
-        if (num % i === 0){
-            return false 
+    const counter = {}
+
+    for (let char of s){
+        counter[char] = (counter[char] || 0) + 1
+    }
+
+    for (let char of t){
+        if (!counter[char]){
+            return false
         }
+        counter[char]--
     }
     return true 
 }
-console.log(isPrime(7));
-console.log(isPrime(8));
-console.log(isPrime(12));
-console.log(isPrime(5));
+console.log(validAnagram("amor", "roma"));
+console.log(validAnagram("amores", "romas"));
