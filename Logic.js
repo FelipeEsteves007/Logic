@@ -1,22 +1,16 @@
-const arr = [1,2,3,4,5,6,7,8,9]
-
-function maiorMenor (arr){
-    if (arr.length === 0){
-        return {maior: null, menor: null}
+function isPrime (num){
+    if (num < 1){
+        return false 
     }
 
-    let maior = arr[0]
-    let menor = arr[0]
-
-    for (let i = 0; i < arr.length;i++){
-        if (arr[i] > maior){
-            maior = arr[i]
-        }
-        if (arr[i] < menor){
-            menor = arr[i]
+    for (let i = 2; i < num; i++){
+        if (num % i === 0){
+            return false 
         }
     }
-    return {maior: maior, menor: menor}
+    return true 
 }
-
-console.log(maiorMenor(arr));
+console.log(isPrime(7));
+console.log(isPrime(8));
+console.log(isPrime(12));
+console.log(isPrime(5));
