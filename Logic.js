@@ -1,19 +1,15 @@
-const precoAcao = [7,9,15,78,6,1,3]
+const nums = [2,15,11,7]
+const terget = 9
 
-function lucroAcoes (precoAcao){
-    let precoMin = Infinity
-    let lucroMax = 0
-
-    for (let precoAtual of precoAcao){
-        if (precoAtual < precoMin){
-            precoMin = precoAtual
-        }
-        const lucroDiario = precoAtual - precoMin
-
-        if (lucroDiario > lucroMax){
-            lucroMax = lucroDiario
+function twoSum (nums,terget){
+    for (let i = 0; i < nums.length; i++){
+        for (let j = i + 1; j < nums.length; j++){
+            if (nums[i] + nums[j] === terget){
+                return [i,j]
+            }
         }
     }
-    return lucroMax
+    return false 
 }
-console.log(lucroAcoes(precoAcao));
+
+console.log(twoSum(nums,terget));
