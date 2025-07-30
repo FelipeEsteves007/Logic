@@ -1,20 +1,13 @@
-const precoAcao = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-function lucroMaxAcao(precoAcao) {
-    let precoMin = Infinity
-    let lucroMax = 0
-
-    for (let precoAtual of precoAcao) {
-        if (precoAtual < precoMin) {
-            precoMin = precoAtual
-        }
-        const lucro = precoAtual - precoMin
-        if (lucro > lucroMax) {
-            lucroMax = lucro
-        }
+const numero = [10,20,30]
+function processarNumeros (numero, callback){
+    for (let i = 0; i < numero.length; i++){
+        callback(numero[i])
     }
-
-    return lucroMax
 }
 
-console.log(lucroMaxAcao(precoAcao));
+const dobro = numero => {
+    console.log(`O dobro de ${numero}: ${numero * 2}`);
+    
+}
+
+processarNumeros(numero,dobro)
