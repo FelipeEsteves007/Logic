@@ -1,13 +1,15 @@
-const numero = [10,20,30]
-function processarNumeros (numero, callback){
-    for (let i = 0; i < numero.length; i++){
-        callback(numero[i])
+const arr = [0,2,3,4,5,6,7,8,9]
+
+function processarNumeros (arr,callback){
+    for (let i = 0; i < arr.length; i++){
+        callback(arr[i])
     }
 }
 
-const dobro = numero => {
-    console.log(`O dobro de ${numero}: ${numero * 2}`);
-    
+const maior = num => {
+    if (num > 5){
+        console.log(`Numero maior que 5: ${num}`);
+    }
 }
 
-processarNumeros(numero,dobro)
+processarNumeros(arr,maior)
