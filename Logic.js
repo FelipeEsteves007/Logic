@@ -1,15 +1,18 @@
-const arr = [0,2,3,4,5,6,7,8,9]
-
-function processarNumeros (arr,callback){
-    for (let i = 0; i < arr.length; i++){
-        callback(arr[i])
+// 0 1 2 3 5 8 
+function fibonacci (num){
+    if (num === 0){
+        return []
     }
-}
-
-const maior = num => {
-    if (num > 5){
-        console.log(`Numero maior que 5: ${num}`);
+    if (num === 1){
+        return [0]
     }
-}
 
-processarNumeros(arr,maior)
+    let arr = [0,1]
+
+    for (let i = 2; i < num; i++){
+        let counter = arr[i - 1] + arr[i - 2]
+        arr.push(counter)
+    }
+    return arr
+}
+console.log(fibonacci(10));
