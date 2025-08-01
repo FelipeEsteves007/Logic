@@ -1,18 +1,24 @@
-// 0 1 2 3 5 8 
-function fibonacci (num){
-    if (num === 0){
-        return []
-    }
-    if (num === 1){
-        return [0]
+function isValid(str){
+    const arrPilha = [] // criamos um array que ira servir como uma pilha 
+
+    const mapa = { // criamos um objeto que liga cada fechamento a sua abertura 
+        ')': '(',
+        ']': '[',
+        '}': '{'
     }
 
-    let arr = [0,1]
-
-    for (let i = 2; i < num; i++){
-        let counter = arr[i - 1] + arr[i - 2]
-        arr.push(counter)
+    // percorrer cada caractere da string
+    for (let char of str){
+        // se for um caractere de abertura empilhamos 
+        if (char === '(' || char === '[' || char === '{'){
+            arrPilha.push(char) // push no arr de pilha 
+        } else {
+            // se caso não for, a gente verifica o topo pilha se corresponde a fechadura da abertura 
+            if (arrPilha.length === 0 || arrPilha.pop() !== mapa[char]) // se a pilha estiver vazia (sem nada pra comparar) ou se o topo for diferente do esperado
+            return false 
+        }
     }
-    return arr
+return arrPilha.length === 0
 }
-console.log(fibonacci(10));
+console.log(isValid('([{}])'));
+
