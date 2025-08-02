@@ -1,24 +1,24 @@
-function isValid(str){
-    const arrPilha = [] // criamos um array que ira servir como uma pilha 
+function isValid(str) {
 
-    const mapa = { // criamos um objeto que liga cada fechamento a sua abertura 
-        ')': '(',
-        ']': '[',
-        '}': '{'
+    const arr = []
+
+    const map = {
+        ")": "(",
+        "}": "{",
+        "]": "["
     }
 
-    // percorrer cada caractere da string
     for (let char of str){
-        // se for um caractere de abertura empilhamos 
-        if (char === '(' || char === '[' || char === '{'){
-            arrPilha.push(char) // push no arr de pilha 
+        if (char === "(" || char === "{" || char === "["){
+            arr.push(char)
         } else {
-            // se caso não for, a gente verifica o topo pilha se corresponde a fechadura da abertura 
-            if (arrPilha.length === 0 || arrPilha.pop() !== mapa[char]) // se a pilha estiver vazia (sem nada pra comparar) ou se o topo for diferente do esperado
-            return false 
+            if (arr.length === 0 || arr.pop() !== map[char]){
+                return false 
+            }
         }
     }
-return arrPilha.length === 0
+return arr.length === 0
+
 }
 console.log(isValid('([{}])'));
-
+console.log(isValid('([}])'));
