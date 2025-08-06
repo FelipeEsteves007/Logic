@@ -1,22 +1,22 @@
-void main (){
-  int num = 7;
-  bool isPrime = true;
+import 'dart:io';
 
-  if (num <= 1){
-    print ("Is not prime");
-    return;
-  }
+void main() {
+  List<String> pagamentos = <String>["Cartão", "Boleto", "Paypal", "pix"];
+  String entrada = "";
 
-  for (int i = 2; i < num; i++){
-    if (num % i == 0){
-      isPrime = false;
-      break;
+  void getOperacao() {
+    print(
+        "Qual o método de pagamento desejado? Temos: ${pagamentos.toString()}");
+
+    entrada = stdin.readLineSync() ?? "";
+
+    if (pagamentos.contains(entrada)) {
+      print("Pagamento válido via $entrada");
+    } else {
+      print("Pagamento inválido, aceitamos apenas ${pagamentos.toString()}");
+      getOperacao();
     }
   }
 
-  if (isPrime){
-    print ("It's prime");
-  } else {
-    print ("Is not prime");
-  }
+  getOperacao();
 }
