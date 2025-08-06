@@ -1,22 +1,9 @@
-import 'dart:io';
+void main (){
+  String texto = "Parou Este código não! continua.";
+  int index = 0;
 
-void main() {
-  List<String> pagamentos = <String>["Cartão", "Boleto", "Paypal", "pix"];
-  String entrada = "";
-
-  void getOperacao() {
-    print(
-        "Qual o método de pagamento desejado? Temos: ${pagamentos.toString()}");
-
-    entrada = stdin.readLineSync() ?? "";
-
-    if (pagamentos.contains(entrada)) {
-      print("Pagamento válido via $entrada");
-    } else {
-      print("Pagamento inválido, aceitamos apenas ${pagamentos.toString()}");
-      getOperacao();
-    }
-  }
-
-  getOperacao();
+  do {
+    print (texto[index]);
+    index ++;
+  } while (index <= texto.length && texto[index - 1] != "!");
 }
