@@ -1,8 +1,22 @@
 void main (){
-int number = 8;
-  if (number % 2 == 0){
-    print ("This $number is even");
+  int num = 7;
+  bool isPrime = true;
+
+  if (num <= 1){
+    print ("Is not prime");
+    return;
+  }
+
+  for (int i = 2; i < num; i++){
+    if (num % i == 0){
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime){
+    print ("It's prime");
   } else {
-    print ("This $number is odd");
+    print ("Is not prime");
   }
 }
