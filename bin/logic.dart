@@ -1,9 +1,9 @@
 void main (){
-  String texto = "Parou Este código não! continua.";
-   int index = 0;
+  int num = 8;
 
-   do {
-    print(texto[index]);
-    index ++;
-   } while (index <= texto.length && texto[index - 1] != "!");
+  if (num % 2 == 0){
+    print ("Numero par");
+  } else {
+    print ("Numero impar");
+  }
 }
