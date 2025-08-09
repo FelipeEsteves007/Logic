@@ -1,21 +1,15 @@
-function isValid(str) {
-
-    const mapa = {
-        ")": "(",
-        "]": "[",
-        "}": "{"
+function isPrime (num) {
+    if (num <= 1){
+        return false 
     }
 
-    let arr = []
-
-    for (let char of str) {
-        if (char === "(" || char === "[" || char === "{") {
-            arr.push(char)
-        } else {
-            if (arr.length === 0 || arr.pop() !== mapa[char])
-            return false
+    for (var i = 2; i < num; i++){
+        if (num % i === 0){
+            return false 
         }
     }
-    return arr.length === 0
+
+    return true;
 }
-console.log(isValid('([{}])'));
+console.log(isPrime(7))
+console.log(isPrime(8))
