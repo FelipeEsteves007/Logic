@@ -1,21 +1,21 @@
-function valid (str){
-    map = {
-    ")" : "(",
-    "}" : "{", 
-    ']' : "["
+function valid (s, t){
+    if (s.length !== t.length){
+        return false;
     }
 
-    const arrStack = [];
+    const arr = {};
 
-    for (let char of str){
-        if (char === "(" || char === "[" || char === "{"){
-            arrStack.push(char)
-        } else {
-            if (arrStack.length === 0 || arrStack.pop() !== map[char]){
-                return false
-            }
+    for (let char of s){
+        arr[char] = (arr[char] || 0) + 1;
+    }
+
+    for (let char of t){
+        if (!arr[char]){
+            return false 
         }
+        arr[char] --
     }
-    return arrStack.length === 0;
+    return true 
 }
-console.log(valid('([{}])'));
+console.log(valid("silent","listen"));
+console.log(valid("rat","car"));
