@@ -1,46 +1,52 @@
-void main() {
-  Ingrediente banana = Fruta("banana", "Fruta");
-  Ingrediente cenoura = Legume("cenoura", "legume");
-  Ingrediente sal = Tempero("sal", "tempero");
+void main (){
+  Medico medico = Medico();  //instanciando Tipo Medico que ira implementar a os metodos Medico
+  Dentista dentista = Dentista (); // o mesmo com dentista 
 
-  banana.detalhes();
-  cenoura.detalhes();
-  sal.detalhes();
+  GerenciadorDeAgendamentos gerenciador = GerenciadorDeAgendamentos(); // Tipo Gerenciador que ira realizar os metodos da classe de gerenciador
+  gerenciador.add(medico); // add medico
+  gerenciador.add(dentista); // add dentista
+
+  gerenciador.calc();
 }
 
-class Ingrediente {
-  String nome;
-  String tipo;
+abstract class Agendamento {  // classe abstrata pois é um molde (sendo interface pois as classes que implementarão ela deverão cumprir esses dois metodos)
+  calcularDuracaoConsulta();
+  verificarDisponibilidade();
+}
 
-  Ingrediente(this.nome, this.tipo);
-
-  void detalhes() {
-    print("Nome: $nome, Tipo: $tipo");
+class Medico implements Agendamento{  //medico implementando a class agendamento
+  @override
+  calcularDuracaoConsulta() {
+    print('Consulta 30 minutos');
+  }
+  @override
+  verificarDisponibilidade() {
+    print("Verificar no calendário");
   }
 }
 
-class Fruta extends Ingrediente {
-  Fruta(super.nome, super.tipo);
-
+class Dentista implements Agendamento { // dentista implementado a class agendamento 
+   @override
+  calcularDuracaoConsulta() {
+    print('Consulta 45 minutos');
+  }
   @override
-  void detalhes() {
-    print("As frutas geralmente não são cozidas nas receitas. ");
+  verificarDisponibilidade() {
+    print("Verificar intervalos ");
   }
 }
 
-class Legume extends Ingrediente {
-  Legume(super.nome, super.tipo);
-  @override
-  void detalhes() {
-    print("Os legumes geralmente precisam ser cozidos nas receitas.");
+class GerenciadorDeAgendamentos {  // gerenciador onde tem uma lista de profissionais 
+  List<Agendamento> profissionais = [];
+
+  void add (Agendamento profissional){ // add profissionais na lista
+    profissionais.add(profissional); //profssional é do tipo agendamento onde ele ira ter dois metodos por interface (implementação)
   }
-}
 
-class Tempero extends Ingrediente {
-  Tempero(super.nome, super.tipo);
-
-  @override
-  void detalhes() {
-    print("Os temperos são usados para condimentar os alimentos.");
+  void calc (){ // calcular e exbir os metodos 
+    for (var profissional in profissionais){ // pra cada item dentro da lista fazemos: 
+        profissional.calcularDuracaoConsulta();
+        profissional.verificarDisponibilidade();
+    }
   }
 }
