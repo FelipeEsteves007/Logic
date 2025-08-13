@@ -1,15 +1,21 @@
-function isPrime (num) {
-    if (num <= 1){
-        return false 
+function valid (str){
+    map = {
+    ")" : "(",
+    "}" : "{", 
+    ']' : "["
     }
 
-    for (var i = 2; i < num; i++){
-        if (num % i === 0){
-            return false 
+    const arrStack = [];
+
+    for (let char of str){
+        if (char === "(" || char === "[" || char === "{"){
+            arrStack.push(char)
+        } else {
+            if (arrStack.length === 0 || arrStack.pop() !== map[char]){
+                return false
+            }
         }
     }
-
-    return true;
+    return arrStack.length === 0;
 }
-console.log(isPrime(7))
-console.log(isPrime(8))
+console.log(valid('([{}])'));
