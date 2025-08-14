@@ -1,25 +1,9 @@
-mixin ControleAcesso {
-  bool verificarPermissaoAdmin(String papel){
-    return papel == "admin";
-    }
+void main (){
+  String texto = "Parou! Este código não continua.";
+  int index = 0;
 
-    void executarOperacao (String papel, Function operacao){
-      if (verificarPermissaoAdmin(papel)){
-        operacao();
-      } else {
-        print ("Acesso negado");
-      }
-    }
-}
-
-class ServisoUsuario with ControleAcesso {
-  void deletar(){
-    executarOperacao("admin", () => print("Deletado"));
-  }
-}
-
-class ServicoProduto with ControleAcesso {
-  void addProduto(){
-    executarOperacao("admin", () => print("Adicionado"));
-  }
+  do {
+    print(texto[index]);
+    index ++;
+  } while (index <= texto.length && texto[index - 1] != "!" );
 }
