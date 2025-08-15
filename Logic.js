@@ -1,21 +1,13 @@
-function valid (s, t){
-    if (s.length !== t.length){
-        return false;
-    }
+const nums = [1,2,3,4,5,5]
 
-    const arr = {};
-
-    for (let char of s){
-        arr[char] = (arr[char] || 0) + 1;
-    }
-
-    for (let char of t){
-        if (!arr[char]){
-            return false 
+function containsDuplicate(nums){
+    for (let i = 0; i < nums.length; i++){
+        for (let j = i + 1; j < nums.length; j++){
+            if (nums[i] === nums[j]){
+                return true
+            }
         }
-        arr[char] --
     }
-    return true 
+    return false 
 }
-console.log(valid("silent","listen"));
-console.log(valid("rat","car"));
+console.log(containsDuplicate(nums));
