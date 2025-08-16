@@ -1,9 +1,7 @@
 void main (){
-  int num = 7;
+  print(invertString("amor"));
+}
 
-  if (num % 2 == 0){
-    print ("Par");
-  } else {
-    print ("Impar");
-  }
+String invertString (String str){
+  return str.split('').reversed.join("");
 }
