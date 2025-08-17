@@ -1,3 +1,20 @@
-const arr = [0,1,2,3,4,5,6]
-const filtrarPares = arr => arr.filter(num => num % 2 === 0)
-console.log(filtrarPares(arr));
+const listPrices = [1,9,7,5,6,4]
+
+function myProfit (listPrices) {
+    let maxProfit = 0;
+    let firstDay = Infinity
+
+    for (let atualPrice of listPrices){
+        if (atualPrice < firstDay){
+            firstDay = atualPrice
+        }
+
+        let profit = atualPrice - firstDay
+
+        if (profit > maxProfit){
+            maxProfit = profit
+        }
+    }
+    return maxProfit
+}
+console.log(myProfit(listPrices));
