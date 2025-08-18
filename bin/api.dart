@@ -118,13 +118,13 @@ fetchPlayerAndMakeTeams() async {
 fetchVetAndSchedule(String veterinarian) async {
   String url = "https://raw.githubusercontent.com/alura-cursos/dart_assincronismo_api/aula05/.json/vet.json";
   Response response = await get(Uri.parse(url));
-  List<dynamic> listAppointments = json.decode(response.body);
+  List<dynamic> listAppointments = json.decode(response.body);  // transform em uma lista dinamica 
 
   List<dynamic> vetAppointments = listAppointments
-    .where((appointments) => appointments['veterinarian'] == veterinarian)
+    .where((appointments) => appointments['veterinarian'] == veterinarian) // pra cada veterinario verifica se é igual a string passada e add a lista 
     .toList();
 
-  vetAppointments.sort((a, b) => DateTime.parse(a["appointment"])
+  vetAppointments.sort((a, b) => DateTime.parse(a["appointment"]) // ordena a lista consultas pela data e hora do agendamento, do mais cedo para o mais tarde
     .compareTo(DateTime.parse(b["appointment"])));
     
   print("Consultas Agendadas para $veterinarian: ");
