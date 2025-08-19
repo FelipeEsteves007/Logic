@@ -1,20 +1,22 @@
-function maiorMenor (arr){
-    let maior = arr[0]
-    let menor = arr[0]
+function validParentheses(str) {
 
-    if (arr.length === 0){
-        return {maior: null, menor: null}
+    let arrStack = [];
+
+    const map = {
+        ")": "(",
+        "}": "{",
+        "]": "["
     }
 
-    for (let i = 1; i < arr.length; i++){
-        if (arr[i] > maior){
-            maior = arr[i]
-        }
-        if (arr[i] < menor){
-            menor = arr[i]
+    for (let caractere of str) {
+        if (caractere === "(" || caractere === "{" || caractere === "[") {
+            arrStack.push(caractere)
+        } else {
+            if (arrStack.length === 0 || arrStack.pop() !== map[caractere]){
+                return false 
+            }
         }
     }
-    return {maior: maior, menor: menor}
+    return arrStack.length === 0
 }
-console.log(maiorMenor([4, 9, 2, 1]));
-
+console.log(validParentheses('([{}])'));
