@@ -1,23 +1,12 @@
-// 0 1 2 3 5 8
+void main (){
+  List<int> originalList = List.generate(20, (i) => i + 1);
+  print(originalList);
 
-List<int> fibonacci(int num) {
-  List<int> seq = [];
+  List<int> sublist1 = originalList.sublist(0,5);
+  print("sublist 1: $sublist1");
 
-  if (num <= 0) {
-    return seq;
-  }
+  List<int> sublist2 = originalList.sublist(14);
+  print("sublist 2: $sublist2");
 
-  if (num >= 1) seq.add(0);
-
-  if (num >= 2) seq.add(1);
-
-  for (int i = 2; i < num; i++) {
-    int next = seq[i - 1] + seq[i - 2];
-    seq.add(next);
-  }
-  return seq;
 }
 
-void main() {
-  print(fibonacci(7));
-}
