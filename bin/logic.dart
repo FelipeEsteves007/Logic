@@ -1,12 +1,10 @@
 void main (){
-  List<int> originalList = List.generate(20, (i) => i + 1);
-  print(originalList);
+  List<String> palavras = ["Abacaxi", "Banana", "Amora", "Laranja", "Ameixa"];
 
-  List<int> sublist1 = originalList.sublist(0,5);
-  print("sublist 1: $sublist1");
+    List<String> comA = palavras
+      .where((p) => p.endsWith("a"))
+      .toList();
 
-  List<int> sublist2 = originalList.sublist(14);
-  print("sublist 2: $sublist2");
-
+    print(comA);
+    print(comA[1]);
 }
-
