@@ -1,10 +1,9 @@
 void main (){
-  List<String> palavras = ["Abacaxi", "Banana", "Amora", "Laranja", "Ameixa"];
+  List<String> cidades = ["São Paulo", "Curitiba", "Rio de Janeiro", "Brasília", "Fortaleza"];
 
-    List<String> comA = palavras
-      .where((p) => p.endsWith("a"))
-      .toList();
+  cidades.sort();
+  print(cidades);
 
-    print(comA);
-    print(comA[1]);
+  cidades.sort((a,b) => b.compareTo(a));
+  print(cidades);
 }
