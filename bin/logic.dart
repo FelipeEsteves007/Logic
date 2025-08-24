@@ -1,24 +1,10 @@
-List<int> fibonacci (int num){
-  // 0 1 2 3 5 8 
-  List<int> seq =[];
-
-  if (num <= 0){
-    return seq; 
-  }
-  if (num >= 1){
-    seq.add(0);
-  }
-  if (num >= 2){
-    seq.add(1);
-  } // [0,1]
-
-  for (int i = 2; i < num; i++){
-    int next = seq[i - 1] + seq[i - 2]; 
-    seq.add(next); 
-  }
-  return seq;
-}
-
 void main (){
-  print(fibonacci(7));
+  List<int> numbers =  List.generate(20, (i) => i + 1);
+  print(numbers);
+
+  List<int> firstFive = numbers.sublist(0,5);
+  print(firstFive);
+
+  List<int> lastFive = numbers.sublist(numbers.length - 5);
+  print(lastFive);
 }
