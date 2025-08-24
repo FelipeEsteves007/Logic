@@ -1,16 +1,24 @@
-bool isStrongPassword (String password){  // funcao boleana onde recebe a senha
-  List<bool Function(String)> rules = [ // lista de funcoes bool
-    (p) => p.length >= 8, // se a senha maior ou igual a 8 
-    (p) => p.contains(RegExp(r'[A-Z]')), // se a senha conter letra maiuscula
-    (p) => p.contains(RegExp(r'[a-z]')),
-    (p) => p.contains(RegExp(r'[0-9]')),
-    (p) => p.contains(RegExp(r'[!@#\$%^&*(),.?":{}|<>]'))
-  ];
+List<int> fibonacci (int num){
+  // 0 1 2 3 5 8 
+  List<int> seq =[];
 
-  return rules.every((rule) => rule(password)); // “Todos os elementos da lista atendem a essa condição?” 
-} 
+  if (num <= 0){
+    return seq; 
+  }
+  if (num >= 1){
+    seq.add(0);
+  }
+  if (num >= 2){
+    seq.add(1);
+  } // [0,1]
 
-void main () {
-   print(isStrongPassword("Senha123!"));  // true
-  print(isStrongPassword("fraco"));      // false
+  for (int i = 2; i < num; i++){
+    int next = seq[i - 1] + seq[i - 2]; 
+    seq.add(next); 
+  }
+  return seq;
+}
+
+void main (){
+  print(fibonacci(7));
 }
