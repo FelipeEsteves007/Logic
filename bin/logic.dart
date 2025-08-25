@@ -1,9 +1,9 @@
-void main() {
-  String frase = "Parou! Este código não continua.";
-  int index = 0; // indice de cada espaco ou letra
-  do {
-    print(frase[index]); // printar cada letra (printando ao menos a primeira)
-    index++; // mais mais
-  } while (frase.length >= index && frase[index - 1] != "!"); // enquanto a o tamanho da fra for maior que o numero do index e a posicao de index q ja foi executada
-  // for diferente de ! continua
+void main (){
+  List<int> idades = [17,25,94,10,16,70];
+
+  idades.sort((a, b) => a.compareTo(b));  // sort vai ordenar vai pegar o primeiro e seindo elemento e o compare ira ver se é maior e menor para a lista toda 
+  print(idades);
+
+  idades.sort((a, b) => b.compareTo(a)); // aqui invertemos 
+  print(idades);
 }
