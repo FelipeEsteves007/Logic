@@ -1,22 +1,16 @@
-function validParentheses(str) {
+function fibonacc (num){
+    // 0 1 1 2 3 5 8
 
-    let arrStack = [];
+    let seq = [];
 
-    const map = {
-        ")": "(",
-        "}": "{",
-        "]": "["
+    if (num < 1) return seq;
+    if (num >= 1) seq.push(0)
+    if (num >= 2) seq.push(1)
+
+    for (let i = 2; i < num; i++){
+        let next = seq[i - 1] + seq[i -2]
+        seq.push(next)
     }
-
-    for (let caractere of str) {
-        if (caractere === "(" || caractere === "{" || caractere === "[") {
-            arrStack.push(caractere)
-        } else {
-            if (arrStack.length === 0 || arrStack.pop() !== map[caractere]){
-                return false 
-            }
-        }
-    }
-    return arrStack.length === 0
+    return seq
 }
-console.log(validParentheses('([{}])'));
+console.log(fibonacc(7));
