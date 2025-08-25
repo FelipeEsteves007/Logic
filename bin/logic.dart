@@ -1,9 +1,21 @@
 void main (){
-   List<String> cidades = ["São Paulo", "Curitiba", "Rio de Janeiro", "Brasília", "Fortaleza"];
+  int num = 7;
+  bool primo = true;
 
-   cidades.sort();
-   print(cidades);
+  if (num <= 1){
+    primo = false;
+  } else {
+    for (int i = 2; i < num; i++){
+      if (num % i == 0){
+        primo = false;
+        break;
+      }
+    }
+  }
 
-   cidades.sort((a, b) => b.compareTo(a));
-   print(cidades);
+  if (primo){
+    print("È primo");
+  } else {
+    print("Não é primo");
+  }
 }
