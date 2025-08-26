@@ -1,10 +1,8 @@
 void main (){
-  List<int> numbers = List<int>.generate(20, (i) => i + 1);
-  print(numbers);
+  List<String> palavras = ["Abacaxi", "Banana", "Amora", "Laranja", "Ameixa"];
 
-  List<int> first = numbers.sublist(0,5);
-  print(first);
+  List<String> withA = palavras.where((caractere) => caractere.startsWith("A")).toList();
+  print(withA);
+  print(withA[0]);
 
-  List<int> less = numbers.sublist(numbers.length - 5);
-  print(less);
 }
