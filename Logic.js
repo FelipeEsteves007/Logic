@@ -1,9 +1,15 @@
-function fatorial (num){
-    //5 4 3 2 1 = 120
-    if (num === 1){
-        return 1
-    } else {
-        return num * fatorial(num - 1)
+let arr = [1,2,3,4,5,6,7,8]
+
+function processarNumeros (arr, callback){
+    for (let i = 0; i < arr.length; i++){
+        callback(arr[i]);
     }
 }
-console.log(fatorial(5));
+
+const maiores = num => {
+    if (num > 5){
+        console.log(num);
+    }
+}
+
+processarNumeros(arr,maiores);
