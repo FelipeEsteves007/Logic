@@ -1,9 +1,10 @@
 void main (){
-  List<String> cidades = ["São Paulo", "Curitiba", "Rio de Janeiro", "Brasília", "Fortaleza"];
+  List<int> numbers = List<int>.generate(20, (i) => i + 1);
+  print(numbers);
 
-  cidades.sort();
-  print(cidades);
+  List<int> first = numbers.sublist(0,5);
+  print(first);
 
-  cidades.sort((a, b) => b.compareTo(a));
-  print(cidades);
+  List<int> less = numbers.sublist(numbers.length - 5);
+  print(less);
 }
