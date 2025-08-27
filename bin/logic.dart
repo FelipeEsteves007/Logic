@@ -1,23 +1,15 @@
 void main (){
-  print(fibonacci(7));
+  print(isStrongPassword("Senha123!"));  // true
+  print(isStrongPassword("fraco"));      // false
 }
 
-List<int> fibonacci (n){
-  // 0 1 1 2 3 5 8
-
-  List<int> seq = [];
-
-  if (n < 1 ){
-    return seq;
-  }
-
-  if (n >= 1) seq.add(0);
-
-  if(n >= 2) seq.add(1);
-
-  for (int i = 2; i < n; i++){
-    int next = seq[i-1] + seq[i-2];
-    seq.add(next);
-  }
-  return seq;
+bool isStrongPassword (String passwowrd){
+  List< bool Function(String) > rules = [
+    (p) => p.length >= 8,
+    (p) => p.contains(RegExp(r'[A-Z]')),
+    (p) => p.contains(RegExp(r'[a-z]')),
+    (p) => p.contains(RegExp(r'[0-9]')),
+    (p) => p.contains(RegExp(r'[!@#\$%^&*(),.?":{}|<>]'))
+  ];
+    return rules.every((rule) => rule(passwowrd));
 }
