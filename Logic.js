@@ -1,15 +1,21 @@
-let arr = [1,2,3,4,5,6,7,8]
-
-function processarNumeros (arr, callback){
-    for (let i = 0; i < arr.length; i++){
-        callback(arr[i]);
+function isValid(s) {
+    let arrStack = []
+    let map = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
     }
-}
 
-const maiores = num => {
-    if (num > 5){
-        console.log(num);
+    for (let char of s) {
+        if (char === '(' || char === '[' || char === '{') {
+            arrStack.push(char);
+        } else {
+            if (arrStack.length === 0 || arrStack.pop() !== map[char]){
+                return false 
+            }
+        }
     }
+    return arrStack.length === 0
 }
-
-processarNumeros(arr,maiores);
+console.log(isValid('([{}])'));
+console.log(isValid('([}])'));
