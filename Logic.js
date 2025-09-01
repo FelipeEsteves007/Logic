@@ -1,21 +1,21 @@
-function isValid(s) {
-    let arrStack = []
-    let map = {
-        ')': '(',
-        ']': '[',
-        '}': '{'
-    }
+const precoAcao = [10,25,16,9,1];
 
-    for (let char of s) {
-        if (char === '(' || char === '[' || char === '{') {
-            arrStack.push(char);
-        } else {
-            if (arrStack.length === 0 || arrStack.pop() !== map[char]){
-                return false 
-            }
+function lucroMax (precoAcao){
+    let maxLucro = 0;
+    let precoMin = Infinity;
+
+    for (let diaAtual of precoAcao){
+        if (diaAtual < precoMin){
+            precoMin = diaAtual
+        }
+
+        let lucro = diaAtual - precoMin
+
+        if (lucro > maxLucro){
+            maxLucro = lucro
         }
     }
-    return arrStack.length === 0
+    return maxLucro;
 }
-console.log(isValid('([{}])'));
-console.log(isValid('([}])'));
+
+console.log(lucroMax(precoAcao));
