@@ -1,5 +1,6 @@
 void main (){
-  print(fibonacci(30));
+  print(fibonacci(8));
+  print(fibonacciRecursividade(7));
 }
 
 List<int> fibonacci (int n){
@@ -17,5 +18,12 @@ List<int> fibonacci (int n){
     int next = seq[i - 1] + seq[i - 2]; // next = seq[1] + seq[0] ou seja 1 + 0
     seq.add(next); // [0,1,1]
   }
-  return seq.where((num) => num % 2 == 0).toList();
+  return seq; //.where((num) => num % 2 == 0).toList();
+}
+
+int fibonacciRecursividade(int num ){
+  if (num <= 0) return 0;
+  if (num == 1) return 1;
+
+  return fibonacciRecursividade(num - 1) + fibonacciRecursividade(num - 2);
 }
