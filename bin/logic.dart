@@ -27,3 +27,17 @@ int fibonacciRecursividade(int num ){
 
   return fibonacciRecursividade(num - 1) + fibonacciRecursividade(num - 2);
 }
+
+int fibonacciNormal (int nm){
+  if (nm <= 0) return 0;
+  if (nm == 1) return 1;
+
+  int a = 0, b = 1, c = 0;
+
+  for (int i = 2; i < nm; i++){
+    c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
