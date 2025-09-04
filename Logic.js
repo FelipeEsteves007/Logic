@@ -1,14 +1,17 @@
-function isPrime (num){
-    if (num <= 1) return true 
-    else {
-        for (let i = 2; i < num; i++){
-            if (num % i === 0){
-                return false 
+nums = [2, 15 , 11, 7]
+terget = 9 
+
+function twoSun (nums, terget){
+    for (let i = 0; i < nums.length; i++){
+        for (let j = i + 1; j < nums.length; j++){
+            if (nums[i]+ nums[j] === terget){
+                return [i,j]
             }
         }
     }
-    return true
+    return false 
 }
-console.log(`The number 7 is prime? ${isPrime(7)}`);
-console.log(isPrime(8));
+const resultado = twoSun(nums,terget)
+console.log(resultado);
+
 
