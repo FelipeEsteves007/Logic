@@ -1,9 +1,20 @@
 void main (){
-  String texto =  "Parou! Este código não continua.";
-  int i = 0;
+  int num = 7;
+  bool isPrime = true;
 
-  do {
-    print(texto[i]);
-    i++;
-  } while (i <= texto.length && texto[i - 1] != "!" );
+  if (num <= 1){
+    isPrime = false;
+  } else {
+    for (int i = 2; i < num; i++){
+      if (num % i == 0){
+        isPrime = false;
+        break;
+      }
+    }
+  }
+  if (isPrime){
+    print ("Is prime");
+  } else {
+    print ("Is not prime");
+  }
 }
