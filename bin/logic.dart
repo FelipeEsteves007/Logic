@@ -1,20 +1,21 @@
 void main (){
-  int num = 7;
-  bool isPrime = true;
+  int n = 11;
 
-  if (num <= 1){
-    isPrime = false;
-  } else {
-    for (int i = 2; i < num; i++){
-      if (num % i == 0){
-        isPrime = false;
-        break;
-      }
+  List<int> result = convertInteger(n);
+  print(result);
+}
+
+List<int> convertInteger (int n){
+  for (int a = 1; a < n; a++){
+    int b = n - a; //
+
+    if (isNoZero(a) && isNoZero(b)){
+      return [a,b];
     }
   }
-  if (isPrime){
-    print ("Is prime");
-  } else {
-    print ("Is not prime");
-  }
+  return [];
+}
+
+bool isNoZero (int num){
+  return (!num.toString().contains('0'));
 }
