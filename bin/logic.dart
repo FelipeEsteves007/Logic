@@ -1,21 +1,33 @@
-void main (){
-  int n = 11;
+int romanInteger (String s){
+  Map<String, int> value = {
+      "I" : 1,
+      "V" : 5,
+      "X" : 10,
+      "L" : 50,
+      "C" : 100, 
+      "D" : 500,
+      "M" : 1000
+  };
 
-  List<int> result = convertInteger(n);
-  print(result);
-}
+  int total = 0; 
 
-List<int> convertInteger (int n){
-  for (int a = 1; a < n; a++){
-    int b = n - a; //
+  for (int i = 0; i < s.length - 1; i++){ 
+    int current = value[s[i]]!; 
+    int next = value[s[i + 1]]!; 
 
-    if (isNoZero(a) && isNoZero(b)){
-      return [a,b];
+    if (current < next){
+      total -= current;
+    } else {
+      total += current; 
     }
   }
-  return [];
+  total += value[s[s.length - 1]]!;
+
+  return total;
 }
 
-bool isNoZero (int num){
-  return (!num.toString().contains('0'));
+void main (){
+  print(romanInteger("III"));      
+  print(romanInteger("LVIII"));    
+  print(romanInteger("MCMXCIV"));  
 }
