@@ -1,33 +1,48 @@
-int romanInteger (String s){
-  Map<String, int> value = {
-      "I" : 1,
-      "V" : 5,
-      "X" : 10,
-      "L" : 50,
-      "C" : 100, 
-      "D" : 500,
-      "M" : 1000
-  };
+int soma (List<int> list){
+  int total = 0;
 
-  int total = 0; 
-
-  for (int i = 0; i < s.length - 1; i++){ 
-    int current = value[s[i]]!; 
-    int next = value[s[i + 1]]!; 
-
-    if (current < next){
-      total -= current;
-    } else {
-      total += current; 
-    }
+  for (int num in list){
+    total += num;
   }
-  total += value[s[s.length - 1]]!;
-
   return total;
 }
 
+int contaRecursiva (List<int> list){
+  if (list.isEmpty){
+    return 0;
+  } else {
+    return 1 + contaRecursiva(list.sublist(1));
+  }
+}
+
+int listaValorAlto (List<int> list){
+  int atual = list[0];
+  
+  for (int proximo in list){
+    if (proximo > atual){
+      atual = proximo;
+    }
+  }
+  return atual;
+}
+
+int valorMaximoRecursivo (List<int> list){
+  if (list.isEmpty){
+    return 0;
+  }
+  
+  if (list.length == 2){
+    return list[0] > list[1] ? list[0] : list[1];
+  }
+
+  int subMax = valorMaximoRecursivo(list.sublist(1)); 
+  return subMax > list[0] ? subMax : list[0]; 
+}
+
 void main (){
-  print(romanInteger("III"));      
-  print(romanInteger("LVIII"));    
-  print(romanInteger("MCMXCIV"));  
+  print(soma([1,2,3,4,5]));
+  print(contaRecursiva([1,2,3,4,5]));
+  print(listaValorAlto([90,13,34,55]));
+  print(valorMaximoRecursivo([90,13,34,55]));
+  print(valorMaximoRecursivo([0]));
 }
