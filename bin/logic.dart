@@ -1,23 +1,27 @@
-int lengthOfLastWord (String s){
-  int count = 0;
-  int i = s.length -1;
+class Tree { // fazendo uma arvore
+  int val; // seu primeiro valor
+  Tree? right; // filha da direita
+  Tree? left; // filha da esquerda
 
-  while (i >= 0 && s[i] == ' '){
-    i--;
-  }
-
-  while (i >= 0 && s[i] != ' '){
-    count ++;
-    i--;
-  }
-
-  return count;
+  Tree(this.val, [this.left, this.right]); // construtor, esta em [pois pode ser null, nao é obrigatorio]
 }
 
-void main () {
-  print(lengthOfLastWord("Hello World"));                 // 5
-  print(lengthOfLastWord("   fly me   to   the moon  ")); // 4
-  print(lengthOfLastWord("luffy is still joyboy"));       // 6
-  print(lengthOfLastWord("Hello"));                       // 5
-  print(lengthOfLastWord("     "));                       // 0
+bool sameTree (Tree? p, Tree? q){
+  if (p == null && q == null) return true; // se as duas forem nulas
+
+  if (p == null || q == null) return false; // se apenas uma for nula
+
+  if(p.val != q.val) return false; // se n tiverem o mesmo valor 
+
+  return sameTree(p.left, q.left) && sameTree(p.right, q.right); // chamandoa as duas recursivamente pra ver se as filhas sao iguais
+}
+
+void main (){
+  Tree p = Tree(1,Tree(2), Tree(3)); 
+  Tree q = Tree(1, Tree(2),Tree(3));
+
+  Tree p2 = Tree(1);
+
+  print(sameTree(p, q));
+   print(sameTree(p, p2));
 }
