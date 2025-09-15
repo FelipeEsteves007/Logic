@@ -1,27 +1,34 @@
-class Tree {  // declaramos nossa arvore
-int val;
-Tree? right;
-Tree? left;
+int maximumNumberOfWords (String text, String brokenLetters){
+  Set<String> letters = brokenLetters.split('').toSet(); // {"a", "d"}, separou letras
 
-Tree(this.val, [this.left, this.right]);
+  List<String> words = text.split(' '); // separou as palavras, "hello" e "world"
+
+  int count = 0; // contador 
+
+  for (String word in words){
+    bool isValid = true;
+
+    for (int i = 0; i < word.length; i++){
+      if (letters.contains(word[i])){
+        isValid = false;
+        break;
+      }
+    }
+    if (isValid){
+      count ++;
+    }
+  }
+  return count;
 }
 
-bool symmetricTree ( Tree? p, Tree? q){ // passamos seus filhos de cada lado 
-   if (p == null && q == null) return true; // se as duas forem null
-   if (p == null || q == null) return false;// se uma for null
-   if (p.val != q.val) return false; // se o nó tiver valor difente 
-
-  return symmetricTree(p.left, q.right) && symmetricTree(p.right, q.left); // pegamos o lado 
-}
 
 
 
 void main (){
-  Tree root = Tree(1,
-    Tree(2, Tree(3), Tree(4)),
-    Tree(2, Tree(4), Tree(3))
-  );
+  String text = "hello world";
+  String brokenLetters = "ad";
 
-  var result = symmetricTree(root,root);
-  print(result);
+  int result = maximumNumberOfWords(text, brokenLetters);
+  print("Palavras que podemos escrever $result");
+
 }
