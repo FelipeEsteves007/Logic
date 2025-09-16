@@ -1,34 +1,15 @@
-int maximumNumberOfWords (String text, String brokenLetters){
-  Set<String> letters = brokenLetters.split('').toSet(); // {"a", "d"}, separou letras
-
-  List<String> words = text.split(' '); // separou as palavras, "hello" e "world"
-
-  int count = 0; // contador 
-
-  for (String word in words){
-    bool isValid = true;
-
-    for (int i = 0; i < word.length; i++){
-      if (letters.contains(word[i])){
-        isValid = false;
-        break;
-      }
-    }
-    if (isValid){
-      count ++;
+List<int> plusOne(List<int> digits) {
+  for (int i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i]++;
+    } else {
+      digits[i] = 0;
     }
   }
-  return count;
+  return [1, ...digits];
 }
 
-
-
-
-void main (){
-  String text = "hello world";
-  String brokenLetters = "ad";
-
-  int result = maximumNumberOfWords(text, brokenLetters);
-  print("Palavras que podemos escrever $result");
-
+void main() {
+  print(plusOne([1, 2, 3]));
+  print(plusOne([9, 9, 9]));
 }
